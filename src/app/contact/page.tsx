@@ -1,4 +1,4 @@
-import { CalendarCheck, Globe2, MessageCircle } from "lucide-react";
+import { CalendarCheck, Globe2, Mail, MapPin, MessageCircle } from "lucide-react";
 import { ContactForm } from "@/components/sections/contact/ContactForm";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { buttonClassName } from "@/components/ui/Button";
@@ -86,6 +86,25 @@ export default function ContactPage() {
                       className="hover:text-white"
                     >
                       {contactConfig.phoneDisplay}
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Mail aria-hidden className="size-5 text-brand-300" />
+                    <a href={`mailto:${contactConfig.email}`} className="hover:text-white">
+                      {contactConfig.email}
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <MapPin aria-hidden className="mt-0.5 size-5 shrink-0 text-brand-300" />
+                    <a href={contactConfig.mapUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                      <address className="not-italic">
+                        {siteConfig.legalName}
+                        {contactConfig.address.lines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </address>
                     </a>
                   </li>
                   <li className="flex items-start gap-3">

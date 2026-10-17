@@ -10,7 +10,7 @@ export const siteConfig = {
   description:
     "Fyntric Tech IT Solutions provides custom software, web and mobile app development, CRM, SaaS, AI automation, blockchain and digital solutions for businesses.",
   /** Public URL of the deployed site, without a trailing slash. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://midhunvijayvs.github.io/fyntric-public-website",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fyntrictech.com",
   locale: "en_IN",
   markets: ["India", "Kerala", "UAE", "Saudi Arabia", "Qatar"],
 } as const;
@@ -23,8 +23,17 @@ export const contactConfig = {
   whatsappNumber: "919995715997",
   /** Human readable version shown on the site. */
   phoneDisplay: "+91 99957 15997",
-  email: "",
-  address: "",
+  email: "fyntrictech@gmail.com",
+  address: {
+    lines: ["6th Floor, Tower 2", "HiLite Business Park", "Palazhi, Kozhikode – 673014"],
+    street: "6th Floor, Tower 2, HiLite Business Park, Palazhi",
+    locality: "Kozhikode",
+    region: "Kerala",
+    postalCode: "673014",
+    country: "IN",
+  },
+  /** Opens the office location in Google Maps. */
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=HiLite+Business+Park+Palazhi+Kozhikode",
 } as const;
 
 export type NavItem = {

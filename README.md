@@ -53,6 +53,6 @@ There is no backend. Submitting the form formats the enquiry and opens WhatsApp 
 
 ## Deployment
 
-Every push to the default branch (`RemoteMain`) runs `.github/workflows/deploy.yml`, which builds the static export and publishes it to GitHub Pages. The workflow sets `NEXT_PUBLIC_BASE_PATH` (the repo sub-path) and `NEXT_PUBLIC_SITE_URL` automatically, so the same code works on a custom domain.
+Every push to the default branch (`RemoteMain`) runs `.github/workflows/deploy.yml`, which builds the static export and publishes it to GitHub Pages. The workflow sets `NEXT_PUBLIC_BASE_PATH` (the repo sub-path) and `NEXT_PUBLIC_SITE_URL` automatically, so the same code works on the custom domain (fyntrictech.com) and on the github.io sub-path.
 
 One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.

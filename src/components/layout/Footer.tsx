@@ -75,20 +75,29 @@ export function Footer() {
                   {contactConfig.phoneDisplay}
                 </a>
               </li>
-              {contactConfig.email && (
-                <li>
-                  <a href={`mailto:${contactConfig.email}`} className="flex items-center gap-3 transition-colors hover:text-white">
-                    <Mail aria-hidden className="size-4 text-brand-300" />
-                    {contactConfig.email}
-                  </a>
-                </li>
-              )}
-              {contactConfig.address && (
-                <li className="flex items-start gap-3">
+              <li>
+                <a href={`mailto:${contactConfig.email}`} className="flex items-center gap-3 transition-colors hover:text-white">
+                  <Mail aria-hidden className="size-4 text-brand-300" />
+                  {contactConfig.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={contactConfig.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 transition-colors hover:text-white"
+                >
                   <MapPin aria-hidden className="mt-1 size-4 shrink-0 text-brand-300" />
-                  <span>{contactConfig.address}</span>
-                </li>
-              )}
+                  <address className="not-italic">
+                    {contactConfig.address.lines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </address>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
