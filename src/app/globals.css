@@ -1,8 +1,72 @@
 @import "tailwindcss";
 @import "lenis/dist/lenis.css";
 
+/* `dark:` utilities apply when <html data-theme="dark"> is set by the theme switch. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /*
- * Design tokens.
+ * Theme colours.
+ * Components use these semantic names (bg-background, text-foreground, border-line…)
+ * so one class works in both themes. Light is the default; dark overrides below.
+ */
+:root {
+  --theme-background: #f6f8fc;
+  --theme-surface: #ffffff;
+  --theme-surface-2: #eef3fb;
+  --theme-foreground: #0b1033;
+  --theme-body: #3b4563;
+  --theme-muted: #5a6585;
+  --theme-subtle: #7c87a6;
+  --theme-line: rgb(11 16 51 / 0.09);
+  --theme-line-strong: rgb(11 16 51 / 0.16);
+  --theme-tint: rgb(11 16 51 / 0.035);
+  --theme-tint-strong: rgb(11 16 51 / 0.07);
+  --theme-accent: #0a5fe0;
+  --theme-highlight: #0891b2;
+  --theme-grid-line: rgb(11 16 51 / 0.06);
+  --theme-noise-opacity: 0.03;
+  --theme-card-shadow: 0 1px 2px rgb(11 16 51 / 0.04), 0 12px 32px -16px rgb(11 16 51 / 0.12);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --theme-background: #04051a;
+  --theme-surface: #070a2b;
+  --theme-surface-2: #0c1040;
+  --theme-foreground: #ffffff;
+  --theme-body: #cbd5e1;
+  --theme-muted: #94a3b8;
+  --theme-subtle: #64748b;
+  --theme-line: rgb(255 255 255 / 0.1);
+  --theme-line-strong: rgb(255 255 255 / 0.18);
+  --theme-tint: rgb(255 255 255 / 0.03);
+  --theme-tint-strong: rgb(255 255 255 / 0.08);
+  --theme-accent: #74adff;
+  --theme-highlight: #2ee6ff;
+  --theme-grid-line: rgb(255 255 255 / 0.05);
+  --theme-noise-opacity: 0.05;
+  --theme-card-shadow: none;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--theme-background);
+  --color-surface: var(--theme-surface);
+  --color-surface-2: var(--theme-surface-2);
+  --color-foreground: var(--theme-foreground);
+  --color-body: var(--theme-body);
+  --color-muted: var(--theme-muted);
+  --color-subtle: var(--theme-subtle);
+  --color-line: var(--theme-line);
+  --color-line-strong: var(--theme-line-strong);
+  --color-tint: var(--theme-tint);
+  --color-tint-strong: var(--theme-tint-strong);
+  --color-accent: var(--theme-accent);
+  --color-highlight: var(--theme-highlight);
+}
+
+/*
+ * Fixed brand palette (same in both themes).
  * Brand colours are taken from the Fyntric Tech logo: deep navy wordmark + electric blue mark.
  */
 @theme {
@@ -72,19 +136,18 @@
 
 @layer base {
   html {
-    color-scheme: dark;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-ink-950 font-sans text-slate-300 antialiased;
+    @apply bg-background font-sans text-body antialiased transition-colors duration-300;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-display text-white;
+    @apply font-display text-foreground;
     text-wrap: balance;
   }
 
@@ -104,20 +167,21 @@
 @layer components {
   /* Gradient text used for highlighted words in headings. */
   .text-gradient {
-    @apply bg-linear-to-r from-brand-300 via-accent-cyan to-brand-400 bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-brand-600 via-cyan-500 to-brand-500 bg-clip-text text-transparent dark:from-brand-300 dark:via-accent-cyan dark:to-brand-400;
   }
 
   /* Faint blueprint grid used behind hero and feature sections. */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+      linear-gradient(to right, var(--theme-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--theme-grid-line) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
   /* Glass surface for cards and the sticky header. */
   .glass {
-    @apply border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+    @apply border border-line bg-surface/70 backdrop-blur-xl dark:bg-white/[0.03];
+    box-shadow: var(--theme-card-shadow);
   }
 
   /* Film grain overlay for depth on large dark surfaces. */
@@ -126,7 +190,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: var(--theme-noise-opacity);
     mask-image: linear-gradient(to bottom, black 60%, transparent);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }

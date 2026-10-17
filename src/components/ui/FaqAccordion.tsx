@@ -12,7 +12,7 @@ export function FaqAccordion({ faqs }: { faqs: Faq[] }) {
   const baseId = useId();
 
   return (
-    <div className="divide-y divide-white/10 border-y border-white/10">
+    <div className="divide-y divide-line border-y border-line">
       {faqs.map((faq, index) => {
         const isOpen = openIndex === index;
         const panelId = `${baseId}-panel-${index}`;
@@ -24,12 +24,12 @@ export function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-medium text-white transition-colors hover:text-brand-200"
+                className="flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-medium text-foreground transition-colors hover:text-accent"
               >
                 {faq.question}
                 <span
                   className={cn(
-                    "grid size-9 shrink-0 place-items-center rounded-full border border-white/15 transition-all duration-300",
+                    "grid size-9 shrink-0 place-items-center rounded-full border border-line-strong transition-all duration-300",
                     isOpen && "rotate-45 border-brand-400 bg-brand-500 text-white",
                   )}
                 >
@@ -48,7 +48,7 @@ export function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="max-w-3xl pb-6 leading-relaxed text-slate-400">{faq.answer}</p>
+                  <p className="max-w-3xl pb-6 leading-relaxed text-muted">{faq.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

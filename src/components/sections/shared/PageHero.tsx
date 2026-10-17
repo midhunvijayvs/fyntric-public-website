@@ -47,7 +47,7 @@ export function PageHero({ eyebrow, title, description, breadcrumbs, children }:
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35, ease }}
-          className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-400 sm:text-xl"
+          className="mt-7 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl"
         >
           {description}
         </motion.p>

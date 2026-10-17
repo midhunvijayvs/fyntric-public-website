@@ -22,7 +22,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-ink-950">
+    <footer className="relative overflow-hidden border-t border-line bg-background">
       <div
         aria-hidden
         className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full bg-brand-500/15 blur-[120px]"
@@ -31,16 +31,16 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <Logo />
-            <p className="mt-6 leading-relaxed text-slate-400">{siteConfig.tagline}</p>
-            <p className="mt-4 text-sm text-slate-500">Serving {siteConfig.markets.join(" · ")}</p>
+            <p className="mt-6 leading-relaxed text-muted">{siteConfig.tagline}</p>
+            <p className="mt-4 text-sm text-subtle">Serving {siteConfig.markets.join(" · ")}</p>
           </div>
 
           <div>
-            <h2 className="font-sans text-sm font-semibold tracking-widest text-white uppercase">Services</h2>
+            <h2 className="font-sans text-sm font-semibold tracking-widest text-foreground uppercase">Services</h2>
             <ul className="mt-5 space-y-3">
               {footerServices.map((service) => (
                 <li key={service.slug}>
-                  <Link href={getServicePath(service.slug)} className="text-slate-400 transition-colors hover:text-white">
+                  <Link href={getServicePath(service.slug)} className="text-muted transition-colors hover:text-foreground">
                     {service.name}
                   </Link>
                 </li>
@@ -49,11 +49,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="font-sans text-sm font-semibold tracking-widest text-white uppercase">Company</h2>
+            <h2 className="font-sans text-sm font-semibold tracking-widest text-foreground uppercase">Company</h2>
             <ul className="mt-5 space-y-3">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-slate-400 transition-colors hover:text-white">
+                  <Link href={item.href} className="text-muted transition-colors hover:text-foreground">
                     {item.label}
                   </Link>
                 </li>
@@ -62,22 +62,22 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="font-sans text-sm font-semibold tracking-widest text-white uppercase">Get in touch</h2>
-            <ul className="mt-5 space-y-4 text-slate-400">
+            <h2 className="font-sans text-sm font-semibold tracking-widest text-foreground uppercase">Get in touch</h2>
+            <ul className="mt-5 space-y-4 text-muted">
               <li>
                 <a
                   href={buildWhatsAppUrl("Hi Fyntric Tech, I'd like to discuss a project.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 transition-colors hover:text-white"
+                  className="flex items-center gap-3 transition-colors hover:text-foreground"
                 >
-                  <MessageCircle aria-hidden className="size-4 text-brand-300" />
+                  <MessageCircle aria-hidden className="size-4 text-accent" />
                   {contactConfig.phoneDisplay}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${contactConfig.email}`} className="flex items-center gap-3 transition-colors hover:text-white">
-                  <Mail aria-hidden className="size-4 text-brand-300" />
+                <a href={`mailto:${contactConfig.email}`} className="flex items-center gap-3 transition-colors hover:text-foreground">
+                  <Mail aria-hidden className="size-4 text-accent" />
                   {contactConfig.email}
                 </a>
               </li>
@@ -86,9 +86,9 @@ export function Footer() {
                   href={contactConfig.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 transition-colors hover:text-white"
+                  className="flex items-start gap-3 transition-colors hover:text-foreground"
                 >
-                  <MapPin aria-hidden className="mt-1 size-4 shrink-0 text-brand-300" />
+                  <MapPin aria-hidden className="mt-1 size-4 shrink-0 text-accent" />
                   <address className="not-italic">
                     {contactConfig.address.lines.map((line) => (
                       <span key={line} className="block">
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-20 flex flex-col gap-4 border-t border-line pt-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {siteConfig.legalName}. All rights reserved.
           </p>

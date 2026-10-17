@@ -34,16 +34,16 @@ export default function ContactPage() {
           <Reveal>
             <div className="glass rounded-[2rem] p-6 sm:p-10">
               <h2 className="text-2xl font-semibold sm:text-3xl">Send a project enquiry</h2>
-              <p className="mt-2 mb-8 text-slate-400">Fields marked * are required.</p>
+              <p className="mt-2 mb-8 text-muted">Fields marked * are required.</p>
               <ContactForm />
             </div>
           </Reveal>
 
           <div className="flex flex-col gap-5">
             <Reveal delay={0.1}>
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-linear-to-br from-brand-600 to-ink-800 p-8">
+              <div data-theme="dark" className="relative overflow-hidden rounded-[2rem] border border-line bg-linear-to-br from-brand-600 to-ink-800 p-8">
                 <div aria-hidden className="absolute -top-16 -right-16 size-48 rounded-full bg-accent-cyan/30 blur-3xl" />
-                <CalendarCheck aria-hidden className="relative size-8 text-white" />
+                <CalendarCheck aria-hidden className="relative size-8 text-foreground" />
                 <h2 className="relative mt-5 text-2xl font-semibold">Prefer to talk first?</h2>
                 <p className="relative mt-2 text-brand-100/80">Book a free consultation with our team directly on WhatsApp.</p>
                 <a
@@ -64,10 +64,10 @@ export default function ContactPage() {
                 <ol className="mt-5 space-y-4">
                   {nextSteps.map((step, index) => (
                     <li key={step} className="flex gap-4">
-                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-brand-500/15 font-display text-sm font-semibold text-brand-200">
+                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-brand-500/15 font-display text-sm font-semibold text-accent">
                         {index + 1}
                       </span>
-                      <span className="text-slate-300">{step}</span>
+                      <span className="text-body">{step}</span>
                     </li>
                   ))}
                 </ol>
@@ -76,27 +76,27 @@ export default function ContactPage() {
 
             <Reveal delay={0.2}>
               <div className="glass rounded-[2rem] p-8">
-                <ul className="space-y-4 text-slate-300">
+                <ul className="space-y-4 text-body">
                   <li className="flex items-center gap-3">
-                    <MessageCircle aria-hidden className="size-5 text-brand-300" />
+                    <MessageCircle aria-hidden className="size-5 text-accent" />
                     <a
                       href={buildWhatsAppUrl("Hi Fyntric Tech!")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-white"
+                      className="hover:text-foreground"
                     >
                       {contactConfig.phoneDisplay}
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
-                    <Mail aria-hidden className="size-5 text-brand-300" />
-                    <a href={`mailto:${contactConfig.email}`} className="hover:text-white">
+                    <Mail aria-hidden className="size-5 text-accent" />
+                    <a href={`mailto:${contactConfig.email}`} className="hover:text-foreground">
                       {contactConfig.email}
                     </a>
                   </li>
                   <li className="flex items-start gap-3">
-                    <MapPin aria-hidden className="mt-0.5 size-5 shrink-0 text-brand-300" />
-                    <a href={contactConfig.mapUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                    <MapPin aria-hidden className="mt-0.5 size-5 shrink-0 text-accent" />
+                    <a href={contactConfig.mapUrl} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
                       <address className="not-italic">
                         {siteConfig.legalName}
                         {contactConfig.address.lines.map((line) => (
@@ -108,7 +108,7 @@ export default function ContactPage() {
                     </a>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Globe2 aria-hidden className="mt-0.5 size-5 shrink-0 text-brand-300" />
+                    <Globe2 aria-hidden className="mt-0.5 size-5 shrink-0 text-accent" />
                     <span>Serving {siteConfig.markets.join(", ")}</span>
                   </li>
                 </ul>

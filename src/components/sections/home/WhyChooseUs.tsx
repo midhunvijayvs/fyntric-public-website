@@ -27,9 +27,9 @@ export function WhyChooseUs() {
             return (
               <Reveal as="li" key={item.title} delay={(index % 2) * 0.1} className={index % 2 === 1 ? "sm:translate-y-12" : ""}>
                 <SpotlightCard className="h-full p-8">
-                  <Icon aria-hidden className="size-7 text-accent-cyan" />
+                  <Icon aria-hidden className="size-7 text-highlight" />
                   <h3 className="mt-6 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-2 leading-relaxed text-slate-400">{item.description}</p>
+                  <p className="mt-2 leading-relaxed text-muted">{item.description}</p>
                 </SpotlightCard>
               </Reveal>
             );

@@ -46,6 +46,12 @@ src/
 | Services (adds a page automatically) | `src/content/services.ts`             |
 | About / Contact copy                 | `src/content/about.ts`, `src/content/contact.ts` |
 | Colours, fonts, animations           | `src/app/globals.css` (`@theme`)      |
+| Light / dark theme colours           | `src/app/globals.css` (`:root` and `[data-theme="dark"]`) |
+| Default theme                        | `src/lib/theme.ts` → `DEFAULT_THEME`  |
+
+## Themes
+
+The site loads in the light theme. The sun/moon button in the header switches to dark mode, and the choice is remembered in the browser. Components use semantic colour classes (`bg-background`, `bg-surface`, `text-foreground`, `text-muted`, `border-line`, `text-accent`…) whose values change per theme, so the same markup works in both. Use `dark:` for the rare one-off override.
 
 ## Contact form
 

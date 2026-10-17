@@ -9,18 +9,18 @@ import { businessSolutions } from "@/content/home";
 function SolutionCard({ solution, index }: { solution: (typeof businessSolutions)[number]; index: number }) {
   const Icon = solution.icon;
   return (
-    <article className="group relative flex h-[22rem] w-[19rem] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-[2rem] border border-white/10 bg-linear-to-b from-ink-800 to-ink-900 p-8 sm:w-[24rem]">
+    <article className="group relative flex h-[22rem] w-[19rem] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-[2rem] border border-line bg-linear-to-b from-surface-2 to-surface p-8 sm:w-[24rem]">
       <div
         aria-hidden
         className="absolute -top-24 -right-24 size-64 rounded-full bg-brand-500/20 blur-3xl transition-all duration-700 group-hover:bg-accent-cyan/25"
       />
       <div className="relative flex items-center justify-between">
-        <span className="font-display text-sm text-slate-500">0{index + 1}</span>
-        <Icon aria-hidden className="size-8 text-brand-300 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6" />
+        <span className="font-display text-sm text-subtle">0{index + 1}</span>
+        <Icon aria-hidden className="size-8 text-accent transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6" />
       </div>
       <div className="relative">
         <h3 className="text-2xl font-semibold">{solution.title}</h3>
-        <p className="mt-3 leading-relaxed text-slate-400">{solution.description}</p>
+        <p className="mt-3 leading-relaxed text-muted">{solution.description}</p>
       </div>
     </article>
   );
@@ -78,7 +78,7 @@ export function SolutionsScroller() {
             ))}
           </motion.div>
           <Container className="mt-12">
-            <div className="h-px w-full bg-white/10">
+            <div className="h-px w-full bg-tint-strong">
               <motion.div style={{ width: progressWidth }} className="h-px bg-linear-to-r from-brand-500 to-accent-cyan" />
             </div>
           </Container>

@@ -26,17 +26,17 @@ function CodeWindow() {
     ["w-16 bg-accent-violet/70"],
   ];
   return (
-    <div aria-hidden className="mt-8 hidden overflow-hidden rounded-2xl border border-white/10 bg-ink-950/70 lg:block">
-      <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+    <div aria-hidden data-theme="dark" className="mt-8 hidden overflow-hidden rounded-2xl border border-line bg-background/90 lg:block">
+      <div className="flex items-center gap-1.5 border-b border-line px-4 py-3">
         <span className="size-2.5 rounded-full bg-red-400/70" />
         <span className="size-2.5 rounded-full bg-amber-300/70" />
         <span className="size-2.5 rounded-full bg-emerald-400/70" />
-        <span className="ml-3 text-xs text-slate-500">app/page.tsx</span>
+        <span className="ml-3 text-xs text-subtle">app/page.tsx</span>
       </div>
       <div className="space-y-3 p-5">
         {lines.map((line, i) => (
           <div key={i} className="flex gap-2">
-            <span className="w-4 text-right font-mono text-[10px] leading-2 text-slate-600">{i + 1}</span>
+            <span className="w-4 text-right font-mono text-[10px] leading-2 text-subtle">{i + 1}</span>
             {line.map((bar, j) => (
               <span
                 key={j}
@@ -56,21 +56,21 @@ function ServiceTile({ service, featured }: { service: Service; featured: boolea
     <SpotlightCard className="h-full">
       <Link href={getServicePath(service.slug)} className="flex h-full flex-col p-7 sm:p-8">
         <div className="flex items-start justify-between">
-          <span className="grid size-12 place-items-center rounded-2xl border border-brand-400/30 bg-brand-500/10 text-brand-200 transition-colors duration-500 group-hover/spot:bg-brand-500 group-hover/spot:text-white">
+          <span className="grid size-12 place-items-center rounded-2xl border border-brand-400/30 bg-brand-500/10 text-accent transition-colors duration-500 group-hover/spot:bg-brand-500 group-hover/spot:text-white">
             <Icon aria-hidden className="size-6" />
           </span>
           <ArrowUpRight
             aria-hidden
-            className="size-5 text-slate-500 transition-all duration-500 group-hover/spot:translate-x-0.5 group-hover/spot:-translate-y-0.5 group-hover/spot:text-white"
+            className="size-5 text-subtle transition-all duration-500 group-hover/spot:translate-x-0.5 group-hover/spot:-translate-y-0.5 group-hover/spot:text-foreground"
           />
         </div>
         <h3 className={cn("mt-8 font-semibold", featured ? "text-3xl" : "text-xl")}>{service.name}</h3>
-        <p className="mt-3 leading-relaxed text-slate-400">{service.summary}</p>
+        <p className="mt-3 leading-relaxed text-muted">{service.summary}</p>
         {featured && <CodeWindow />}
         {featured && (
           <ul className="mt-auto flex flex-wrap gap-2 pt-8">
             {service.capabilities.slice(0, 6).map((capability) => (
-              <li key={capability} className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
+              <li key={capability} className="rounded-full border border-line px-3 py-1 text-xs text-body">
                 {capability}
               </li>
             ))}

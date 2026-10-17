@@ -45,7 +45,7 @@ export default function AboutPage() {
                       </span>
                       <h3 className="text-2xl font-semibold">{pillar.title}</h3>
                     </div>
-                    <p className="mt-6 text-lg leading-relaxed text-slate-300">{pillar.text}</p>
+                    <p className="mt-6 text-lg leading-relaxed text-body">{pillar.text}</p>
                   </SpotlightCard>
                 </Reveal>
               );
@@ -72,9 +72,9 @@ export default function AboutPage() {
               <Reveal as="li" key={service.slug} delay={index * 0.03}>
                 <Link
                   href={getServicePath(service.slug)}
-                  className="glass inline-flex items-center gap-3 rounded-full px-5 py-3 font-medium text-white transition-all duration-300 hover:border-brand-400/50 hover:bg-brand-500/15"
+                  className="glass inline-flex items-center gap-3 rounded-full px-5 py-3 font-medium text-foreground transition-all duration-300 hover:border-brand-400/50 hover:bg-brand-500/15"
                 >
-                  <service.icon aria-hidden className="size-4 text-brand-300" />
+                  <service.icon aria-hidden className="size-4 text-accent" />
                   {service.name}
                 </Link>
               </Reveal>
@@ -98,7 +98,7 @@ export default function AboutPage() {
           <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {siteConfig.markets.map((market, index) => (
               <Reveal as="li" key={market} delay={index * 0.06}>
-                <div className="glass rounded-2xl px-6 py-8 text-center font-display text-xl font-semibold text-white">{market}</div>
+                <div className="glass rounded-2xl px-6 py-8 text-center font-display text-xl font-semibold text-foreground">{market}</div>
               </Reveal>
             ))}
           </ul>

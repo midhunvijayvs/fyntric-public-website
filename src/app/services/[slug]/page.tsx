@@ -86,7 +86,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
               return (
                 <Reveal as="li" key={item.title} delay={index * 0.07}>
                   <div className="glass h-full rounded-3xl p-6">
-                    <Icon aria-hidden className="size-6 text-accent-cyan" />
+                    <Icon aria-hidden className="size-6 text-highlight" />
                     <h3 className="mt-4 font-semibold">{item.title}</h3>
                   </div>
                 </Reveal>
