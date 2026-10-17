@@ -17,11 +17,15 @@ export function CtaBanner({ heading, text, buttonLabel = primaryCta.label }: Cta
     <section className="relative py-24 sm:py-32">
       <Container>
         <Reveal>
-          <div className="noise relative isolate overflow-hidden rounded-[2.5rem] border border-white/10 bg-linear-to-br from-brand-600 via-ink-800 to-ink-900 px-6 py-20 text-center sm:px-16 sm:py-28">
+          {/* Always rendered in the dark palette so it stands out in both themes. */}
+          <div
+            data-theme="dark"
+            className="noise relative isolate overflow-hidden rounded-[2.5rem] border border-line bg-linear-to-br from-brand-600 via-ink-800 to-surface px-6 py-20 text-center sm:px-16 sm:py-28"
+          >
             <div aria-hidden className="absolute inset-0 -z-10">
               <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-              <div className="absolute top-1/2 left-1/2 size-[40rem] -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-white/10" />
-              <div className="absolute top-1/2 left-1/2 size-[28rem] -translate-x-1/2 -translate-y-1/2 animate-spin-reverse rounded-full border border-dashed border-white/15" />
+              <div className="absolute top-1/2 left-1/2 size-[40rem] -translate-x-1/2 -translate-y-1/2 animate-spin-slow rounded-full border border-line" />
+              <div className="absolute top-1/2 left-1/2 size-[28rem] -translate-x-1/2 -translate-y-1/2 animate-spin-reverse rounded-full border border-dashed border-line-strong" />
               <div className="absolute -top-20 -left-20 size-80 rounded-full bg-accent-cyan/30 blur-[100px]" />
               <div className="absolute -right-20 -bottom-20 size-80 rounded-full bg-accent-violet/30 blur-[100px]" />
             </div>

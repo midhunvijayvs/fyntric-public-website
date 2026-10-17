@@ -17,14 +17,14 @@ type FieldProps = {
 };
 
 const inputClassName =
-  "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-white placeholder:text-slate-500 transition-colors focus:border-brand-400 focus:bg-white/[0.06] focus:outline-none";
+  "w-full rounded-xl border border-line bg-tint px-4 py-3.5 text-foreground placeholder:text-subtle transition-colors focus:border-brand-400 focus:bg-tint-strong focus:outline-none";
 
 function Field({ label, name, required, className, children }: FieldProps) {
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <label htmlFor={name} className="text-sm font-medium text-slate-300">
+      <label htmlFor={name} className="text-sm font-medium text-body">
         {label}
-        {required && <span className="ml-0.5 text-brand-300">*</span>}
+        {required && <span className="ml-0.5 text-accent">*</span>}
       </label>
       {children}
     </div>
@@ -33,7 +33,7 @@ function Field({ label, name, required, className, children }: FieldProps) {
 
 function SelectInput({ name, options, placeholder, required }: { name: string; options: string[]; placeholder: string; required?: boolean }) {
   return (
-    <select id={name} name={name} required={required} defaultValue="" className={cn(inputClassName, "appearance-none bg-ink-900")}>
+    <select id={name} name={name} required={required} defaultValue="" className={cn(inputClassName, "appearance-none bg-surface")}>
       <option value="" disabled>
         {placeholder}
       </option>
@@ -88,7 +88,7 @@ export function ContactForm() {
           >
             <CheckCircle2 aria-hidden className="size-16 text-emerald-400" />
             <h3 className="mt-6 text-2xl font-semibold">Your enquiry is ready in WhatsApp</h3>
-            <p className="mt-3 max-w-md text-slate-400">
+            <p className="mt-3 max-w-md text-muted">
               Press send in WhatsApp to deliver it to our team. If WhatsApp didn&apos;t open, check that pop-ups are allowed and try again.
             </p>
             <Button variant="secondary" className="mt-8" onClick={() => setIsSent(false)}>
@@ -139,7 +139,7 @@ export function ContactForm() {
               />
             </Field>
             <div className="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-slate-500">Submitting opens WhatsApp with your enquiry ready to send.</p>
+              <p className="text-sm text-subtle">Submitting opens WhatsApp with your enquiry ready to send.</p>
               <Button type="submit" size="lg">
                 <Send aria-hidden className="relative z-10 size-4" />
                 {contactCtas.primary}

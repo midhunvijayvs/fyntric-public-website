@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { contactConfig, siteConfig } from "@/config/site";
 import { homeSeo } from "@/content/home";
 import { ogImage } from "@/lib/metadata";
+import { DEFAULT_THEME, themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04051a",
+  themeColor: "#f6f8fc",
 };
 
 const organizationSchema = {
@@ -85,7 +86,10 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en" data-theme={DEFAULT_THEME} className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-dvh">
         <SmoothScroll>
           <a

@@ -10,8 +10,8 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-brand-500 text-white shadow-[0_10px_40px_-10px] shadow-brand-500/70 hover:bg-brand-400 hover:shadow-brand-400/80",
   inverse: "bg-white text-ink-900 shadow-[0_10px_40px_-10px] shadow-white/30 hover:bg-brand-50",
-  secondary: "border border-white/15 bg-white/5 text-white backdrop-blur hover:border-white/30 hover:bg-white/10",
-  ghost: "text-brand-200 hover:text-white",
+  secondary: "border border-line-strong bg-tint text-foreground backdrop-blur hover:border-line-strong hover:bg-tint-strong",
+  ghost: "text-accent hover:text-foreground",
 };
 
 const sizes: Record<Size, string> = {

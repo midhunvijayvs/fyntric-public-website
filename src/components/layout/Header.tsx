@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/layout/Logo";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { mainNav, primaryCta } from "@/config/site";
@@ -51,14 +52,14 @@ export function Header() {
       <div
         className={cn(
           "transition-all duration-500",
-          isScrolled || isMenuOpen ? "border-b border-white/10 bg-ink-950/70 backdrop-blur-xl" : "border-b border-transparent",
+          isScrolled || isMenuOpen ? "border-b border-line bg-background/70 backdrop-blur-xl" : "border-b border-transparent",
         )}
       >
         <Container className="flex h-20 items-center justify-between gap-6">
           <Logo priority />
 
           <nav aria-label="Main" className="hidden md:block">
-            <ul className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1.5 backdrop-blur">
+            <ul className="flex items-center gap-1 rounded-full border border-line bg-tint p-1.5 backdrop-blur">
               {mainNav.map((item) => {
                 const active = isActive(pathname, item.href);
                 return (
@@ -66,7 +67,7 @@ export function Header() {
                     {active && (
                       <motion.span
                         layoutId="nav-active-pill"
-                        className="absolute inset-0 rounded-full bg-white/10"
+                        className="absolute inset-0 rounded-full bg-tint-strong"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -75,7 +76,7 @@ export function Header() {
                       aria-current={active ? "page" : undefined}
                       className={cn(
                         "relative block rounded-full px-5 py-2 text-sm font-medium transition-colors",
-                        active ? "text-white" : "text-slate-400 hover:text-white",
+                        active ? "text-foreground" : "text-muted hover:text-foreground",
                       )}
                     >
                       {item.label}
@@ -87,6 +88,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <div className="hidden lg:block">
               <ButtonLink href={primaryCta.href} withArrow>
                 {primaryCta.label}
@@ -98,7 +100,7 @@ export function Header() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="grid size-11 place-items-center rounded-full border border-white/15 text-white md:hidden"
+              className="grid size-11 place-items-center rounded-full border border-line-strong text-foreground md:hidden"
             >
               {isMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -115,7 +117,7 @@ export function Header() {
             animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
             exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-20 bottom-0 bg-ink-950/95 backdrop-blur-2xl md:hidden"
+            className="fixed inset-x-0 top-20 bottom-0 bg-background/95 backdrop-blur-2xl md:hidden"
           >
             <Container className="flex h-full flex-col justify-between py-10">
               <ul className="space-y-2">
@@ -130,7 +132,7 @@ export function Header() {
                       href={item.href}
                       className={cn(
                         "block py-2 font-display text-4xl font-semibold",
-                        isActive(pathname, item.href) ? "text-gradient" : "text-white",
+                        isActive(pathname, item.href) ? "text-gradient" : "text-foreground",
                       )}
                     >
                       {item.label}

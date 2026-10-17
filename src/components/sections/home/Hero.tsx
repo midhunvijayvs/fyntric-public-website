@@ -53,7 +53,7 @@ function OrbitVisual() {
       <div className="absolute inset-[30%] animate-pulse-glow rounded-full bg-brand-500/40 blur-3xl" />
 
       {/* Outer ring */}
-      <div className="absolute inset-0 animate-spin-reverse rounded-full border border-white/10">
+      <div className="absolute inset-0 animate-spin-reverse rounded-full border border-line">
         {outer.map((service, i) => {
           const angle = (i / outer.length) * 2 * Math.PI;
           const Icon = service.icon;
@@ -63,7 +63,7 @@ function OrbitVisual() {
               className="absolute size-12"
               style={{ left: `${50 + 50 * Math.cos(angle)}%`, top: `${50 + 50 * Math.sin(angle)}%`, translate: "-50% -50%" }}
             >
-              <div className="glass grid size-full animate-spin-slow place-items-center rounded-2xl text-brand-200 [animation-duration:60s]">
+              <div className="glass grid size-full animate-spin-slow place-items-center rounded-2xl text-accent [animation-duration:60s]">
                 <Icon className="size-5" />
               </div>
             </div>
@@ -82,7 +82,7 @@ function OrbitVisual() {
               className="absolute size-11"
               style={{ left: `${50 + 50 * Math.cos(angle)}%`, top: `${50 + 50 * Math.sin(angle)}%`, translate: "-50% -50%" }}
             >
-              <div className="grid size-full animate-spin-reverse place-items-center rounded-full border border-brand-400/40 bg-ink-800 text-accent-cyan shadow-[0_0_24px_-4px] shadow-brand-500/60 [animation-duration:40s]">
+              <div className="grid size-full animate-spin-reverse place-items-center rounded-full border border-brand-400/40 bg-surface-2 text-highlight shadow-[0_0_24px_-4px] shadow-brand-500/60 [animation-duration:40s]">
                 <Icon className="size-5" />
               </div>
             </div>
@@ -91,20 +91,20 @@ function OrbitVisual() {
       </div>
 
       {/* Core */}
-      <div className="absolute inset-[36%] grid place-items-center rounded-full border border-white/15 bg-ink-900/80 shadow-[0_0_80px_-10px] shadow-brand-500/70 backdrop-blur">
+      <div className="absolute inset-[36%] grid place-items-center rounded-full border border-line-strong bg-surface/80 shadow-[0_0_80px_-10px] shadow-brand-500/70 backdrop-blur">
         <Image src={logoMark} alt="" className="w-1/2" sizes="120px" />
       </div>
 
       {/* Floating status chips */}
       <div className="glass absolute top-[8%] -left-[4%] animate-float rounded-2xl px-4 py-3 text-xs shadow-2xl">
-        <p className="flex items-center gap-2 font-medium text-white">
+        <p className="flex items-center gap-2 font-medium text-foreground">
           <span className="size-2 rounded-full bg-emerald-400 shadow-[0_0_10px] shadow-emerald-400" /> AI agent online
         </p>
-        <p className="mt-1 text-slate-400">Qualifying new leads…</p>
+        <p className="mt-1 text-muted">Qualifying new leads…</p>
       </div>
       <div className="glass absolute -right-[2%] bottom-[14%] animate-float rounded-2xl px-4 py-3 text-xs shadow-2xl [animation-delay:-3s]">
-        <p className="font-medium text-white">Deployment ✓</p>
-        <div className="mt-2 h-1.5 w-32 overflow-hidden rounded-full bg-white/10">
+        <p className="font-medium text-foreground">Deployment ✓</p>
+        <div className="mt-2 h-1.5 w-32 overflow-hidden rounded-full bg-tint-strong">
           <div className="h-full w-full rounded-full bg-linear-to-r from-brand-500 to-accent-cyan" />
         </div>
       </div>
@@ -156,7 +156,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-slate-400"
+            className="mt-7 max-w-xl text-lg leading-relaxed text-muted"
           >
             {homeHero.intro}
           </motion.p>
@@ -179,7 +179,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="mt-12 flex items-center gap-3 text-sm text-slate-400"
+            className="mt-12 flex items-center gap-3 text-sm text-muted"
           >
             <span className="h-px w-10 bg-linear-to-r from-transparent to-brand-400" />
             We build <RotatingWord words={homeHero.rotatingWords} />
@@ -202,10 +202,10 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] tracking-[0.3em] text-slate-500 uppercase sm:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] tracking-[0.3em] text-subtle uppercase sm:flex"
       >
         Scroll
-        <span className="relative h-10 w-px overflow-hidden bg-white/10">
+        <span className="relative h-10 w-px overflow-hidden bg-tint-strong">
           <motion.span
             className="absolute inset-x-0 top-0 h-1/2 bg-brand-400"
             animate={{ y: ["-100%", "200%"] }}

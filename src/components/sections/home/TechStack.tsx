@@ -5,7 +5,7 @@ import { technologies } from "@/content/home";
 
 function TechPill({ name }: { name: string }) {
   return (
-    <span className="glass flex items-center gap-3 rounded-full px-7 py-4 font-display text-xl font-medium whitespace-nowrap text-white sm:text-2xl">
+    <span className="glass flex items-center gap-3 rounded-full px-7 py-4 font-display text-xl font-medium whitespace-nowrap text-foreground sm:text-2xl">
       <span aria-hidden className="size-2 rounded-full bg-brand-400" />
       {name}
     </span>

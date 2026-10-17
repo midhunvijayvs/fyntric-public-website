@@ -23,7 +23,7 @@ export function SpotlightCard({ className, children, ...props }: ComponentPropsW
       ref={ref}
       onMouseMove={handleMouseMove}
       className={cn(
-        "group/spot relative overflow-hidden rounded-3xl border border-white/10 bg-ink-900/60 transition-colors duration-500 hover:border-brand-400/40",
+        "group/spot relative overflow-hidden rounded-3xl border border-line bg-surface/60 shadow-[var(--theme-card-shadow)] transition-colors duration-500 hover:border-brand-400/40",
         className,
       )}
       {...props}

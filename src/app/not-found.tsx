@@ -11,7 +11,7 @@ export default function NotFound() {
       <Container className="relative">
         <p className="text-gradient font-display text-8xl font-semibold sm:text-9xl">404</p>
         <h1 className="mt-6 text-3xl font-semibold sm:text-5xl">This page could not be found</h1>
-        <p className="mx-auto mt-4 max-w-md text-slate-400">The page may have moved. Let&apos;s get you back on track.</p>
+        <p className="mx-auto mt-4 max-w-md text-muted">The page may have moved. Let&apos;s get you back on track.</p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <ButtonLink href="/" size="lg" withArrow>
             Back to home

@@ -63,10 +63,10 @@ export default function ServicesPage() {
               return (
                 <Reveal as="li" key={solution.title} delay={(index % 3) * 0.07}>
                   <div className="glass flex h-full gap-5 rounded-3xl p-7">
-                    <Icon aria-hidden className="size-7 shrink-0 text-accent-cyan" />
+                    <Icon aria-hidden className="size-7 shrink-0 text-highlight" />
                     <div>
                       <h3 className="text-lg font-semibold">{solution.title}</h3>
-                      <p className="mt-2 text-slate-400">{solution.description}</p>
+                      <p className="mt-2 text-muted">{solution.description}</p>
                     </div>
                   </div>
                 </Reveal>

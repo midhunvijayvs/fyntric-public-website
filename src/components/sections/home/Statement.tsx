@@ -27,7 +27,7 @@ export function Statement() {
       <Container>
         <p
           ref={ref}
-          className="max-w-5xl font-display text-3xl leading-[1.2] font-medium tracking-tight text-white sm:text-5xl lg:text-6xl"
+          className="max-w-5xl font-display text-3xl leading-[1.2] font-medium tracking-tight text-foreground sm:text-5xl lg:text-6xl"
         >
           {words.map((word, i) => (
             <Word key={`${word}-${i}`} word={word} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]} />
