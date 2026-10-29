@@ -95,6 +95,22 @@
   --animate-spin-slow: spin 40s linear infinite;
   --animate-spin-reverse: spin-reverse 60s linear infinite;
   --animate-pulse-glow: pulse-glow 6s ease-in-out infinite;
+  --animate-bob: bob 3s ease-in-out infinite;
+
+  /* Looping animations for the service illustrations (src/components/sections/services/illustrations). */
+  --animate-grow-x: grow-x 4s ease-in-out infinite;
+  --animate-grow-y: grow-y 5s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-press: press 2.4s ease-in-out infinite;
+  --animate-breathe: breathe 3s ease-in-out infinite;
+  --animate-pop: pop 5s ease-in-out infinite;
+  --animate-slide-in: slide-in 5s ease-in-out infinite;
+  --animate-drop-in: drop-in 5s ease-in-out infinite;
+  --animate-wiggle: wiggle 5s ease-in-out infinite;
+  --animate-typing: typing 1s ease-in-out infinite;
+  --animate-draw: draw 4s ease-in-out infinite;
+  --animate-dash: dash 1.2s linear infinite;
+  --animate-pipeline: pipeline 7s ease-in-out infinite;
 
   @keyframes marquee {
     from {
@@ -112,6 +128,170 @@
     }
     50% {
       transform: translate3d(0, -18px, 0);
+    }
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -6px, 0);
+    }
+  }
+
+  @keyframes grow-x {
+    0%,
+    100% {
+      transform: scaleX(0.2);
+    }
+    30%,
+    85% {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes grow-y {
+    0%,
+    100% {
+      transform: scaleY(0.15);
+    }
+    30%,
+    85% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes pulse-soft {
+    50% {
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes press {
+    50% {
+      transform: scale(0.92);
+    }
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pop {
+    0%,
+    25% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    35%,
+    88% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    15%,
+    80% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+  }
+
+  @keyframes drop-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    20%,
+    85% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-8deg);
+    }
+    50% {
+      transform: rotate(8deg);
+    }
+  }
+
+  @keyframes typing {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+  }
+
+  /* For SVG paths with pathLength="1" and stroke-dasharray="1". */
+  @keyframes draw {
+    0% {
+      stroke-dashoffset: 1;
+    }
+    55%,
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -8;
+    }
+  }
+
+  /* A lead card travelling across three pipeline columns. */
+  @keyframes pipeline {
+    0%,
+    15% {
+      left: 2%;
+      opacity: 1;
+    }
+    30%,
+    50% {
+      left: 35%;
+    }
+    65%,
+    92% {
+      left: 68%;
+      opacity: 1;
+    }
+    100% {
+      left: 68%;
+      opacity: 0;
     }
   }
 

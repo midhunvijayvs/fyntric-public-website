@@ -1,7 +1,7 @@
 import { ProcessTimeline } from "@/components/sections/shared/ProcessTimeline";
 import { CtaBanner } from "@/components/sections/shared/CtaBanner";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { ServiceCard } from "@/components/sections/services/ServiceCard";
+import { ServiceShowcase } from "@/components/sections/services/ServiceShowcase";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -33,18 +33,7 @@ export default function ServicesPage() {
         </ButtonLink>
       </PageHero>
 
-      <Section className="pt-0 sm:pt-0">
-        <Container>
-          <h2 className="sr-only">All services</h2>
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <Reveal as="li" key={service.slug} delay={(index % 3) * 0.07}>
-                <ServiceCard service={service} />
-              </Reveal>
-            ))}
-          </ul>
-        </Container>
-      </Section>
+      <ServiceShowcase services={services} />
 
       <Section>
         <Container>
