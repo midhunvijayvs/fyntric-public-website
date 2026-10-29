@@ -10,7 +10,7 @@ export const siteConfig = {
   description:
     "Fyntric Tech IT Solutions provides custom software, web and mobile app development, CRM, SaaS, AI automation, blockchain and digital solutions for businesses.",
   /** Public URL of the deployed site, without a trailing slash. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fyntrictech.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fyntrictech.co.in",
   locale: "en_IN",
   markets: ["India", "Kerala", "UAE", "Saudi Arabia", "Qatar"],
 } as const;
