@@ -37,12 +37,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # The site is served from the root of the custom domain (see public/CNAME and
+      # siteConfig.url), so no base path is set. To serve it from
+      # https://<user>.github.io/<repo>/ instead, add NEXT_PUBLIC_BASE_PATH: /<repo> here.
       - name: Build static site
         run: npm run build
-        env:
-          # e.g. "/fyntric-public-website" on <user>.github.io, empty on a custom domain
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

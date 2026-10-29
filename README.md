@@ -59,6 +59,8 @@ There is no backend. Submitting the form formats the enquiry and opens WhatsApp 
 
 ## Deployment
 
-Every push to the default branch (`RemoteMain`) runs `.github/workflows/deploy.yml`, which builds the static export and publishes it to GitHub Pages. The workflow sets `NEXT_PUBLIC_BASE_PATH` (the repo sub-path) and `NEXT_PUBLIC_SITE_URL` automatically, so the same code works on the custom domain (fyntrictech.com) and on the github.io sub-path.
+Every push to the default branch (`RemoteMain`) runs `.github/workflows/deploy.yml`, which builds the static export and publishes it to GitHub Pages at **https://fyntrictech.co.in**.
 
-One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+The domain lives in `public/CNAME` and `siteConfig.url` (`src/config/site.ts`); change both if it moves. In the repo, Settings → Pages must have Source set to **GitHub Actions** and Custom domain set to `fyntrictech.co.in`.
+
+DNS (at the domain registrar): four `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and a `CNAME` for `www` → `midhunvijayvs.github.io`.
