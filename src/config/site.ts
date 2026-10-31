@@ -23,7 +23,7 @@ export const contactConfig = {
   whatsappNumber: "919995715997",
   /** Human readable version shown on the site. */
   phoneDisplay: "+91 99957 15997",
-  email: "fyntrictech@gmail.com",
+  email: "info@fyntrictech.co.in",
   address: {
     lines: ["6th Floor, Tower 2", "HiLite Business Park", "Palazhi, Kozhikode – 673014"],
     street: "6th Floor, Tower 2, HiLite Business Park, Palazhi",
